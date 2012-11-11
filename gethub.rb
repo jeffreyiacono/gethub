@@ -2,12 +2,12 @@ require 'net/http'
 require 'uri'
 require 'io/console'
 
+uri = URI.parse('https://api.github.com/user')
+
 puts "Enter in a github username:"
 gh_username = gets.chomp
 puts "Enter in the github user password (hidden):"
 gh_password = STDIN.noecho(&:gets).chomp
-
-uri = URI.parse('https://api.github.com/user')
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
